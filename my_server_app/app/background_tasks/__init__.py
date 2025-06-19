@@ -1,0 +1,1 @@
+# This file initializes the background_tasks module, which handles asynchronous tasks using Celery and Redis.

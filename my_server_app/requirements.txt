@@ -1,0 +1,26 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+alembic
+celery
+redis
+requests
+beautifulsoup4
+httpx
+python-multipart # Required for file uploads in FastAPI
+python-jose[cryptography] # Required for JWT authentication
+passlib[bcrypt] # Required for password hashing
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+alembic
+celery
+redis
+requests
+beautifulsoup4
+httpx
+python-multipart # Required for file uploads in FastAPI
+python-jose[cryptography] # Required for JWT authentication
+passlib[bcrypt] # Required for password hashing

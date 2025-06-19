@@ -1,0 +1,1 @@
+# This file initializes the web_scanner module, making it a Python package.
