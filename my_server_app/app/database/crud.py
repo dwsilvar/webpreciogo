@@ -167,6 +167,37 @@ def delete_store(db: Session, store_id: int):
         db.commit()
     return db_store
 
+# CRUD functions for Product model
+
+def create_product(db: Session, product: ProductCreate):
+    db_product = models.Product(**product.model_dump())
+    db.add(db_product)
+    db.commit()
+    db.refresh(db_product)
+    return db_product
+
+def get_product(db: Session, product_id: int):
+    return db.query(models.Product).filter(models.Product.id == product_id).first()
+
+def get_products(db: Session, skip: int = 0, limit: int = 100):
+    return db.query(models.Product).offset(skip).limit(limit).all()
+
+def update_product(db: Session, product_id: int, product: ProductUpdate):
+    db_product = db.query(models.Product).filter(models.Product.id == product_id).first()
+    if db_product:
+        for key, value in product.model_dump(exclude_unset=True).items():
+            setattr(db_product, key, value)
+        db.commit()
+        db.refresh(db_product)
+    return db_product
+
+def delete_product(db: Session, product_id: int):
+    db_product = db.query(models.Product).filter(models.Product.id == product_id).first()
+    if db_product:
+        db.delete(db_product)
+        db.commit()
+    return db_product
+
 # CRUD functions for ProductStore model
 
 def get_product_store(db: Session, product_store_id: int):
